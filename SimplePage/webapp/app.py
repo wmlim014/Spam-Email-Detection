@@ -1,14 +1,21 @@
 import flask
 import pickle
-import pandas as pd
 
-# Use pickle to load in the pre-trained model.
-with open(f'model/movie_reviews_sentiment_analysis.pkl', 'rb') as f:
-    model = pickle.load(f)
+# Use pickle to load in the pre-trained logistic regression model.
+with open(f'model/logistic_regression.pkl', 'rb') as f:
+    logRegModel = pickle.load(f)
 
-# Use pickle to load in vectorizer.
-with open(f'model/vectorizer.pkl', 'rb') as f:
-    vectorizer = pickle.load(f)
+# Use pickle to load in the pre-trained naive bayes model.
+with open(f'model/naive_bayes.pkl', 'rb') as f:
+    nbModel = pickle.load(f)
+
+# Use pickle to load in the pre-trained random forest model.
+with open(f'model/random_forest.pkl', 'rb') as f:
+    rfModel = pickle.load(f)
+
+# Use pickle to load in the pre-trained svm model.
+with open(f'model/svm.pkl', 'rb') as f:
+    svmModel = pickle.load(f)
 
 app = flask.Flask(__name__, template_folder='templates')
 
@@ -18,11 +25,9 @@ def main():
         return(flask.render_template('main.html'))
 
     if flask.request.method == 'POST':
-        review = flask.request.form['review']
-        predict_text = "Prediction sentiment for movie: "
-        movie = flask.request.form.get("movie")
-        prediction = model.predict(vectorizer.transform([review]))
-        return(flask.render_template('main.html', predict_text=predict_text, movie=movie, result=prediction))
+        emailText = flask.request.form.get("emailText")
+        prediction = logRegModel.predict(emailText)
+        return(flask.render_template('main.html', emailCategory=prediction))
 
 if __name__ == '__main__':
     app.run()

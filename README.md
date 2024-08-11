@@ -1,6 +1,6 @@
 ### Refer to Basic Writing and Formatting Syntax for *.md files. [Click Here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)*
 
-# [Basic Setup](https://blog.bolajiayodeji.com/how-to-deploy-a-machine-learning-model-to-the-web)
+# [Basic Setup in Terminal](https://blog.bolajiayodeji.com/how-to-deploy-a-machine-learning-model-to-the-web)
 1. Install or upgrade pip
     ```
     python.exe -m pip install --upgrade --user pip
@@ -14,7 +14,7 @@
         ```
         pip install python
         ```
-3. Flask installation
+3. Basic setup before Spacy installation
     ```
-    pip instal flask
+    pip install -U pip setuptools wheel
     ```
