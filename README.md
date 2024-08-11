@@ -18,11 +18,3 @@
     ```
     pip instal flask
     ```
-
-# Heroku CLI
-1. Download and install the Heroku CLI 
-```
-curl https://cli-assets.heroku.com/install.sh | sh
-```
-
-2. 
