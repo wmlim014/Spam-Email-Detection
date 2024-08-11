@@ -1,0 +1,57 @@
+.content .inputContent{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    gap: 5px;
+    max-height: fit-content;
+    max-width: fit-content;
+    align-self: center;
+    opacity: 85%;
+
+    .contentTitle{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        label{
+            vertical-align: middle;
+        }
+
+        #runButton{
+            background-color: black;
+            padding: 10px;
+            color: white;
+            font-weight: 700;
+            border-radius: 5px;
+            justify-self: right;
+            border: none;
+            cursor: pointer;
+        }
+
+        #runButton:hover{
+            background-color: #999999;
+            color: black;
+        }
+    }
+
+    textarea{
+        padding: 10px;
+        border-radius: 10px;
+        border-color: #a6a6a6;
+        border-width: 3px;
+        background-color: #f2f2f2;
+        font-size: 15px;
+    }
+    
+    ::-ms-input-placeholder { /* Edge 12-18 */
+        color: #b3b3b3;
+    }
+    
+    ::placeholder {
+        color: #b3b3b3;
+    }
+}

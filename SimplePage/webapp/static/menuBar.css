@@ -1,0 +1,32 @@
+.menuBar .menuBarContent{
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-width: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #84B9D4;
+    color: white;
+
+    img{
+        max-width: 80px
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        align-self: last baseline;
+        gap: 10px;
+        
+        .groupTitle {
+            font-size: 30px;
+            font-weight: 1000;
+        }
+
+        .deployBy {
+            font-size: 15px;
+        }
+    }
+}
