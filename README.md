@@ -14,7 +14,23 @@
         ```
         pip install python
         ```
-3. Basic setup before Spacy installation
-    ```
-    pip install -U pip setuptools wheel
-    ```
+3. [Basic setup before Spacy installation](https://www.youtube.com/watch?v=Or5r9gg-bns)
+    - Open an empty folder located in computer (prefered in thumb-drive) and open it in terminal
+    - Use the following script step by step
+        ```
+        python -m venv spacy_venv
+        ```
+
+        * Create Temporarily Bypass Execution Policy
+            ```
+            powershell -ExecutionPolicy Bypass -File .\spacy_venv\Scripts\Activate.ps1
+            ```
+
+        * Change Execution Policy (current user only)
+            ```
+            Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+            ```
+            
+        ```
+        .\spacy_venv\Scripts\activate
+        ```
