@@ -2,11 +2,11 @@ body {
     display: flex;
     flex-direction: row;
     background-color: black;
-    background-image: url("/images/background.gif");
+    background-image: url("/static/images/background.gif");
     background-size: cover;
     font-family: "Lucida Console", "Courier New", monospace;
     gap: 20px;
-    width: 100%;
+    width: auto;
     justify-content: space-between;
 
     .inputContent{
