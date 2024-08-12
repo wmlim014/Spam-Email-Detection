@@ -14,23 +14,24 @@
         ```
         pip install python
         ```
-3. [Basic setup before Spacy installation](https://www.youtube.com/watch?v=Or5r9gg-bns)
-    - Open an empty folder located in computer (prefered in thumb-drive) and open it in terminal
-    - Use the following script step by step
+3. Python environment setup
+    - Go to folder stored webpage
         ```
-        python -m venv spacy_venv
+        cd SimplePage/webapp
         ```
-
-        * Create Temporarily Bypass Execution Policy
-            ```
-            powershell -ExecutionPolicy Bypass -File .\spacy_venv\Scripts\Activate.ps1
-            ```
-
-        * Change Execution Policy (current user only)
-            ```
-            Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-            ```
-            
+    - Create a python environment
         ```
-        .\spacy_venv\Scripts\activate
+        python -m venv myenv  
+        ```
+    - Access created environment
+        ```
+        myenv\Scripts\activate
+        ```
+    - Install package needed *(add more if needed)*
+        ```
+        pip install numpy scipy scikit-learn flask
+        ```
+    - Check package list and version
+        ```
+        pip list
         ```

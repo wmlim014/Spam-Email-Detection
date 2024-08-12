@@ -1,58 +1,53 @@
 <!-- main.html -->
 <!DOCTYPE html>
 <html>
-    <head>
-      <!-- UX Setup -->
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <!-- UX Setup -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!-- UI Setup -->
-      <title>Inbox Guard</title>
-      <link rel="icon" type="image/png" href="../images/favicon.png"/>
-      <link rel="stylesheet" href="../static/main.css"/>
+    <!-- UI Setup -->
+    <title>Inbox Guard</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='menuBar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}"/>
 
-    </head>
-    <body>
+  </head>
+  <body>
 
-        <div class="inputContent">
-          <div class="menuBar" others-html="./menuBar.html"></div>
-          <div class="content" others-html="./input.html"></div>
+      <div class="inputContent">
+
+        <div class="menuBarContent">
+          <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Inbox Guard">
+          
+          <div class="header">
+              <label class="groupTitle">INBOX GUARD</label> 
+              <label class="deployBy">powered by CSCI323 FT-T01-G04 students</label>
+          </div>
         </div>
 
-        <div class="output" others-html="./output.html"></div>
-    
-    </body>
+        <div class="content">
+          <form id="inputTextForm" action="/" method="post">
+              <div class="contentTitle">
+                  <label>Check the safety of email</label>
+                  <button id="runButton" type="submit" value="submit">Run ></button>
+              </div>
+  
+              <textarea id="emailText" rows="25" cols="50" required
+                  placeholder="Input your email content here. You might also include the email subject to increase the categories accuracy."></textarea>    
+          </form>
+        </div>
+      </div>
 
-    <script>
-        function includeHTML() {
-          var z, i, elmnt, file, xhttp;
-          /*loop through a collection of all HTML elements:*/
-          z = document.getElementsByTagName("*");
-          for (i = 0; i < z.length; i++) {
-            elmnt = z[i];
-            /*search for elements with a certain atrribute:*/
-            file = elmnt.getAttribute("others-html");
-            if (file) {
-              /*make an HTTP request using the attribute value as the file name:*/
-              xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                  /*remove the attribute, and call this function once more:*/
-                  elmnt.removeAttribute("others-html");
-                  includeHTML();
-                }
-              }      
-              xhttp.open("GET", file, true);
-              xhttp.send();
-              /*exit the function:*/
-              return;
-            }
-          }
-        };
-
-        includeHTML();
-    </script>
+      
+      <div class="output">
+        <b>{{ predictionTitle }}</b>
+        <spam>{{ result }}</spam>
+      </div>
+  
+  </body>
+  <script src="{{ url_for('static', filename='static/main.js') }}"></script>
 </html>

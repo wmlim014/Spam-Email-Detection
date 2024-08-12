@@ -1,4 +1,4 @@
-.menuBar .menuBarContent{
+.menuBarContent{
     display: flex;
     flex-direction: row;
     border-style: solid;

@@ -1,16 +1,17 @@
+<!-- input.html -->
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../static/input.css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}"/>
     </head>
     <body>
 
         <div class="inputContent">
 
-            <form id="inputTextForm" action="{{ url_for('main') }}" method="post">
+            <form id="inputTextForm" action="/predict" method="post">
                 <div class="contentTitle">
                     <label>Check the safety of email</label>
-                    <button id="runButton">Run ></button>
+                    <button id="runButton" type="submit" value="submit">Run ></button>
                 </div>
     
                 <textarea id="emailText" rows="25" cols="50" required

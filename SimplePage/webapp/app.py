@@ -1,33 +1,35 @@
-import flask
+from flask import Flask, request, jsonify, render_template
 import pickle
 
-# Use pickle to load in the pre-trained logistic regression model.
-with open(f'model/logistic_regression.pkl', 'rb') as f:
-    logRegModel = pickle.load(f)
-
-# Use pickle to load in the pre-trained naive bayes model.
-with open(f'model/naive_bayes.pkl', 'rb') as f:
-    nbModel = pickle.load(f)
-
-# Use pickle to load in the pre-trained random forest model.
-with open(f'model/random_forest.pkl', 'rb') as f:
-    rfModel = pickle.load(f)
-
-# Use pickle to load in the pre-trained svm model.
+# Load the trained model using pickle
 with open(f'model/svm.pkl', 'rb') as f:
-    svmModel = pickle.load(f)
+    svm_model = pickle.load(f)
 
-app = flask.Flask(__name__, template_folder='templates')
+# Load the TfidfVectorizer used during training
+with open(f'model/vectorizer.pkl', 'rb') as f:
+    vectorizer = pickle.load(f)
 
+# Initialize the Flask app
+app = Flask(__name__, template_folder='templates')
+
+# Define a route to test the model with new data
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    if flask.request.method == 'GET':
-        return(flask.render_template('main.html'))
+    if request.method == 'GET':
+        return(render_template('main.html'))
 
-    if flask.request.method == 'POST':
-        emailText = flask.request.form.get("emailText")
-        prediction = logRegModel.predict(emailText)
-        return(flask.render_template('main.html', emailCategory=prediction))
-
+    if request.method == 'POST':
+        email_text = request.form['emailText'] if 'emailText' in request.form else ""
+        
+        # Transform the email text using the loaded TfidfVectorizer
+        transformed_text_ = vectorizer.transform([email_text])
+        # Make the prediction using the loaded model
+        predictionTitle = "This email is:\n"
+        result = svm_model.predict(transformed_text_)
+        
+        # Return the prediction result as JSON
+        return render_template('main.html', predictionTitle=predictionTitle, result=result, email_text = email_text)
+    
+# Run the app
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
