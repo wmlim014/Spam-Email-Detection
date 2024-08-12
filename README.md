@@ -2,6 +2,9 @@
 
 # Load app.py
 ```
+cd SimplePage/webapp
+```
+```
 myenv\Scripts\activate
 ```
 ```
