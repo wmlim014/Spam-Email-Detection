@@ -29,24 +29,21 @@
           </div>
         </div>
 
-        <div class="content">
-          <form id="inputTextForm" action="/" method="post">
-              <div class="contentTitle">
-                  <label>Check the safety of email</label>
-                  <input id="runButton" type="submit" value="Run >"></input>
-              </div>
-  
-              <textarea id="emailText" rows="25" cols="50" required
-                  placeholder="Input your email content here. You might also include the email subject to increase the categories accuracy."></textarea>    
-          </form>
-        </div>
+        <form id="inputTextForm" method="POST">
+          <div class="contentTitle">
+              <label>Check the safety of email</label>
+              <input id="runButton" type="submit" value="Run >"></input>
+          </div>
+
+          <textarea name="emailText" rows="25" cols="50" required
+              placeholder="Input your email content here. You might also include the email subject to increase the categories accuracy."></textarea>    
+      </form>
       </div>
 
       {% if result %}
         <div class="output">
           <b>{{ predictionTitle }}</b>
           <spam>{{ result }}</spam>
-          <spam>{{ email_text }}</spam>
         </div>
       {% endif %}
   
