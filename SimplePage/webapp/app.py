@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 
 # Load the trained model using pickle
-with open(f'model/svm.pkl', 'rb') as f:
+with open(f'model/svm_model.pkl', 'rb') as f:
     svm_model = pickle.load(f)
 
 # Load the TfidfVectorizer used during training
