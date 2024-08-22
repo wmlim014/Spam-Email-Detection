@@ -1,4 +1,4 @@
-![](data/SamplePageView.gif)
+![](./SimplePage/data/SamplePageView.gif)
 
 # Load app.py
 ```
