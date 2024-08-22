@@ -1,4 +1,4 @@
-[![Website](ReadMe_Embbed.png)](Sample_website.mp4)
+![](data/SamplePageView.gif)
 
 # Load app.py
 ```
