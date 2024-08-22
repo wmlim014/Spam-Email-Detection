@@ -19,6 +19,9 @@ body {
     }
 
     .output{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         max-width: fit-content;
         max-height: fit-content;
         align-self: center;

@@ -1,4 +1,4 @@
-### Refer to Basic Writing and Formatting Syntax for *.md files. [Click Here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)*
+[![Website Sample]](https://drive.google.com/drive/folders/17DYs4FJy2nYo5DIE90jqHRUeNrKGuuH5)
 
 # Load app.py
 ```
@@ -40,7 +40,7 @@ python app.py
         ```
     - Install package needed *(add more if needed)*
         ```
-        pip install numpy scipy scikit-learn flask
+        pip install numpy scipy scikit-learn flask xgboost
         ```
     - Check package list and version
         ```

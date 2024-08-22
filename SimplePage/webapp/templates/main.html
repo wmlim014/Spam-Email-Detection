@@ -40,15 +40,26 @@
       </form>
       </div>
 
-      {% if result %}
-        <div class="output">
-          <b>{{ predictionTitle }}</b>
-          <spam>{{ result }}</spam>
+    {% if prediction_results %}
+      <div class="output">
+        {% for prediction in prediction_results %}
+          <div class="model-results {{ prediction.model, prediction.result, prediction.confidence }}">
+              <b>{{ prediction.model }} Model Prediction:</b>
+              {{ prediction.result }}<br />
+              <b> Confidence:</b>
+              {{ prediction.confidence }} %
+          </div>
+        {% endfor %}
+          
+        <div>
+          <b>Final Ensemble Prediction: </b>
+          {{ final_result }}
         </div>
-      {% endif %}
-  
+      </div>
+    {% endif %}
+
   </body>
-  <script
+  <script 
       src="{{ url_for('static',filename='main.js') }}"
       type="text/javascript"
     ></script>
