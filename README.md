@@ -1,4 +1,4 @@
-[![Website](https://img.youtube.com/vi/<video-id>/0.jpg)](https://drive.google.com/drive/folders/17DYs4FJy2nYo5DIE90jqHRUeNrKGuuH5)
+[![Website](https://drive.google.com/drive/folders/17DYs4FJy2nYo5DIE90jqHRUeNrKGuuH5)](https://drive.google.com/drive/folders/17DYs4FJy2nYo5DIE90jqHRUeNrKGuuH5)
 
 # Load app.py
 ```
